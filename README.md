@@ -1,6 +1,6 @@
 # dash-security
 
-`dash-security` module allows you to granularly control access to different layouts for users and orgs, and dynamically serve different content to different users with the same layouts and assets.
+`dash-security` allows you to granularly control access to different layouts for users and orgs, and dynamically serve different content to different users with the same layouts and assets.
 
 (future: arbitrary permission levels)
 
