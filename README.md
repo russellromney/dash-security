@@ -1,6 +1,6 @@
 # dash-security
 
-The `security` module allows you to granularly control access to different layouts for users and orgs, and dynamically serve different content to different users with the same layouts and assets.
+`dash-security` module allows you to granularly control access to different layouts for users and orgs, and dynamically serve different content to different users with the same layouts and assets.
 
 (future: arbitrary permission levels)
 
@@ -30,7 +30,7 @@ python3 app.py
 python3 add_user.py
 ```
 
-## integrating `security` into a project
+## integrating `dash-security` into a project
 
 Assumptions:
 
@@ -44,7 +44,7 @@ engine = sqlalchemy.create_engine(...)
 server.engine = engine
 ```
 
-## developing with `security` features
+## developing with `dash-security` features
 
 This code has a full example in `layouts/` and `pages/` where different assets and layouts are granted to different users or orgs.
 
@@ -74,9 +74,9 @@ if __name__ == "__main__":
 
 ### registering layouts
 
-Each Dash page layout must be registered into the security system with `register_layout`, and explicitly given access to the given emails or orgs. If the emails and orgs arguments are left blank, any logged in user can access. If `open=True` then any user can access regardless of login.
+Each Dash page layout must be registered into the `dash-security` system with `register_layout`, and explicitly given access to the given emails or orgs. If the emails and orgs arguments are left blank, any logged in user can access. If `open=True` then any user can access regardless of login.
 
-If a user ends up at a URL path that doesn't exist, `security` displays a "404 Page does not exist" content by default; you can update this by passing a valid Dash component object to the `init_security` function.
+If a user ends up at a URL path that doesn't exist, `dash-security` displays a "404 Page does not exist" content by default; you can update this by passing a valid Dash component object to the `init_security` function.
 
 `pages/page.py`
 
