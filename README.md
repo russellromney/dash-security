@@ -1,4 +1,4 @@
-# security
+# dash-security
 
 The `security` module allows you to granularly control access to different layouts for users and orgs, and dynamically serve different content to different users with the same layouts and assets.
 
@@ -7,7 +7,14 @@ The `security` module allows you to granularly control access to different layou
 ## setup and run
 
 ```shell
-python -m venv venv
+pip3 install dash-security
+```
+
+# setup environment
+```shell
+cd examples/basic
+
+python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 
