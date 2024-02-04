@@ -30,7 +30,8 @@ dashapp = Dash(
 
 ## mock user system - see the app as if you were another user, until the site refreshes.
 ## this will save you time so you don't have to login/logout every time to check changes for different users
-## uncomment the below line
+##
+## uncomment the below line to deactivate
 # mocks = []
 ## comment out this line
 mocks = mock_users(dashapp)

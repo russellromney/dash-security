@@ -7,7 +7,6 @@ import flask_login
 from models import User
 
 from security import (
-    redirect_authenticated,
     unprotected,
     register_layout,
     check_password_hash,
@@ -20,10 +19,17 @@ HOME_PATH = "/"
 
 @register_layout(__name__, open=True)
 def layout():
+    # if the user is logged in, redirect them to the home page
     if flask_login.current_user.is_authenticated:
-        return dcc.Location(id="redirect-authed")
+        return dcc.Location(id="redirect-authed", pathname="/")
+
+    # otherwise, take them home
     return html.Div(
         [
+            html.Div(
+                "try jack@test.com, jill@test.com, matt@fake.com, or maria@fake.com; password=test"
+            ),
+            html.Br(),
             html.Div("Email"),
             dcc.Input(type="email", id="login-email"),
             html.Div("Password"),

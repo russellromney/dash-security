@@ -1,27 +1,47 @@
 # dash-security
 
-`dash-security` allows you to granularly control access to different layouts for users and orgs, and dynamically serve different content to different users with the same layouts and assets.
+Dash Security allows you to granularly control access to different layouts for users and orgs, and dynamically serve different content to different users with the same layouts and assets.
 
 (future: arbitrary permission levels)
 
-## setup and run
+Dash Security emulates Dash itself: it securely registers layouts and assets into something similar to `dash.page_registry`. 
+
+# dash-security example: `examples/basic`
+
+`dash-security` allows you to granularly control access to different layouts for users and orgs, and dynamically serve different content to different users with the same layouts and assets.
+
+This example shows off the features of `dash-security`. 
+* integrates with Dash Pages
+* builds on top of Flask-Login
+* integrated with SQLAlchemy 2.0+
+* all page layouts protected by default
+* all callbacks protected by default
+* the `layouts/` folder
+* registering pages into Dash Security
+* registering assets into Dash Security
+* dynamically serving assets based on emails/orgs
+* dynamically mocking users
+
 
 ```shell
 pip3 install dash-security
 ```
 
-# setup environment
+# setup environment for the example
 ```shell
 cd examples/basic
 
 python3 -m venv venv
 source venv/bin/activate
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 
+python3 create_tables.py
 python3 app.py
 ```
 
 ## add user
+
+Many Dash users need a way to add a user, but don't need a complex admin dashboard. The `add_user.py` script allows you to do this simply. Make sure to change the database credentials to your own database.
 
 ```shell
 # copy examples/add_user.py to your directory

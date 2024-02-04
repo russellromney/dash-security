@@ -10,14 +10,14 @@ from models import User
 ############################################################
 # CORE APP & CONFIG
 ############################################################
-load_dotenv(".env")
+load_dotenv(".env.example")
 app = Flask(__name__)
 app.config.update(SECRET_KEY=os.getenv("SECRET_KEY"))
 
 ############################################################
 # SETUP DATABASE
 ############################################################
-engine = create_engine("sqlite:///db.sqlite")
+engine = create_engine(os.getenv("SQLALCHEMY_URI"))
 app.engine = engine
 
 ############################################################

@@ -34,5 +34,8 @@ def f():
     Output("widgets-user-content", "children"), Input("widgets-user-content", "style")
 )
 def update_content_with_user_name_and_org(_):
+    """
+    This callback works for each asset, even though they are created separately depending on the user.
+    """
     time.sleep(0.5)
     return f"email is {current_user.email}; org is {current_user.org}"

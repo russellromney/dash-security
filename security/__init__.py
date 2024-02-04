@@ -495,8 +495,26 @@ def protect_callbacks(default: bool = True):
             value["callback"] = _protect_callback(value["callback"])
 
 
+def _remove_unprotected_pages():
+    """
+    This goes through the dash.page_registry and removes any pages that are
+    not explicitly registered into the Dash Security page registry.
+
+    This protects developers against accidentally leaving pages unprotected.
+    """
+    for module in list(page_registry.keys()):
+        if not module in LAYOUT_REGISTRY:
+            print(
+                f"DASH SECURITY: DELETING UNREGISTERED PAGE FROM DASH PAGE REGISTRY: {module}"
+            )
+            del page_registry[module]
+
+
 def init_security(
-    dashapp: dash.Dash, default: bool = True, not_found_layout=DEFAULT_NOT_FOUND_LAYOUT
+    dashapp: dash.Dash,
+    default: bool = True,
+    not_found_layout=DEFAULT_NOT_FOUND_LAYOUT,
+    remove_unprotected_pages: bool = True,
 ):
     """
     Protect Dash pages and callbacks from unauthorized access according to a global default.
@@ -513,6 +531,8 @@ def init_security(
     dashapp.server.dash_security_not_found_layout = not_found_layout
     protect_callbacks(default)
     _import_and_register_assets_in_layouts()
+    if remove_unprotected_pages:
+        _remove_unprotected_pages()
 
 
 def redirect_authenticated(pathname: str) -> Callable:
