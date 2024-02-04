@@ -34,6 +34,8 @@ def _user_has_layout_access(module: str) -> bool:
         return False
     elif LAYOUT_REGISTRY[module]["open"]:
         return True
+    elif not current_user:
+        return False
     # the current user is not authenticated - the rest of the pages require authentication
     elif not current_user.is_authenticated:
         return False
