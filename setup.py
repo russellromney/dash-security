@@ -20,9 +20,9 @@ setup(
         "bcrypt",
         "pydantic",
         "SQLAlchemy>=2.0.25",
-        "urllib3>=2.1.0"
+        "urllib3>=2.1.0",
     ],
-    python_requires='>=3.9',
+    python_requires=">=3.9",
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Intended Audience :: Developers",

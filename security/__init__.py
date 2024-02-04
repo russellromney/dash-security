@@ -3,7 +3,7 @@ import importlib
 import os
 import sys
 from dash import page_registry, dcc, html
-from typing import Any, List, Union, Callable
+from typing import Any, Dict, List, Union, Callable
 import flask
 import dash
 from dash import Output, Input, dcc, page_registry, _callback
@@ -50,7 +50,7 @@ def _user_has_layout_access(module: str) -> bool:
     return False
 
 
-def get_user_page_registry():
+def get_user_page_registry() -> List[Dict]:
     """
     Gets the pages in the Dash.page_registry which the user has access to,
     by checking the dash-security LAYOUT_REGISTRY.
