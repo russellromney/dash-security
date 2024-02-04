@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="dash-security",
-    version="0.0.2",
+    version="0.0.5",
     description="Building blocks for secure Dash development with Dash Pages",
     long_description="Securely develop Dash apps for cases with multiple clients and which require loading dynamic content per user/client - with Dash Pages support",
     keywords="dash security callbacks plotly access authorization authentication flask python flask-login python3 clients orgs emails",
@@ -37,3 +37,8 @@ setup(
     include_package_data=False,
     zip_safe=False,
 )
+
+
+
+
+
