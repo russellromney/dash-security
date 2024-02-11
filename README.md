@@ -218,10 +218,11 @@ many users and rendering layouts differently depending on who the user is.
 from server import server # flask.Flask
 from security import mock_users, init_security
 from dash import Dash, page_container, html, dcc
+from models import User
 ...
 app = Dash(__name__, use_pages=True, server=server)
 
-mocks = mock_users(app) # add logic to remove this in production environments
+mocks = mock_users(app, user=User) # add logic to remove this in production environments
 app.layout = html.Div(
     [
         dcc.Location(id="url"),
@@ -239,11 +240,3 @@ if __name__ == "__main__":
 ```
 
 
-# Contributing to dash-security
-
-Contributions to Dash Security are welcome! Steps to contribute: 
-* clone the repo (or fork the repo and clone your fork)
-* create a feature branch with a helpful name like `contrib/add-somefeature`
-* commit change to your local branch
-* push those commits to your branch (or to your fork branch)
-* open a Pull Request on this repo with your changes

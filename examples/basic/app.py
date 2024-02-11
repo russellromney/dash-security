@@ -8,13 +8,10 @@ from dash import (
     page_container,
 )
 from flask_login import current_user
-from security import (
-    unprotected,
-    get_user_page_registry,
-    init_security,
-)
-from security import mock_users
+from security import unprotected, get_user_page_registry, init_security, mock_users
+
 from server import app
+from models import User
 
 
 dashapp = Dash(
@@ -34,7 +31,7 @@ dashapp = Dash(
 ## uncomment the below line to deactivate
 # mocks = []
 ## comment out this line
-mocks = mock_users(dashapp)
+mocks = mock_users(dashapp, user=User)
 
 dashapp.layout = html.Div(
     [

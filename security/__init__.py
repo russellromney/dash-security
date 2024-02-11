@@ -11,10 +11,9 @@ from dash.exceptions import PreventUpdate
 from flask import session, current_app
 from flask_login import AnonymousUserMixin, current_user
 from pathlib import Path
+import sqlalchemy
 from sqlalchemy.orm import Session
 from sqlalchemy import select
-
-from models import User
 
 LAYOUT_REGISTRY = {}
 ASSET_REGISTRY = {}
@@ -285,7 +284,7 @@ def _import_and_register_assets_in_layouts():
             sys.modules[module_name] = page_module
 
 
-def mock_users(app: dash.Dash) -> List[Any]:
+def mock_users(app: dash.Dash, UserModel) -> List[Any]:
     """
     Adds capability to see a dashboard through the eyes of another user.
     But you get to stay logged in.
@@ -303,10 +302,12 @@ def mock_users(app: dash.Dash) -> List[Any]:
     from security import mock_users, init_security
     from dash import Dash, page_container, html, dcc
     ...
+    from models import User
+
     app = Dash(__name__, use_pages=True, server=server)
 
     # add logic to remove this in production environments
-    mocks = mock_users(app)
+    mocks = mock_users(app,user=User)
     app.layout = html.Div(
         [
             dcc.Location(id="url"),
@@ -333,13 +334,13 @@ def mock_users(app: dash.Dash) -> List[Any]:
             if not temp:
                 pass
         with Session(current_app.engine) as s:
-            user = s.get(User, user_id)
+            user = s.get(UserModel, user_id)
         if not user:
             return AnonymousUserMixin()
         return user
 
     with Session(app.server.engine) as temp:
-        users = temp.scalars(select(User)).all()
+        users = temp.scalars(select(UserModel)).all()
 
     # this basic container sits at the top of your application*
     # when you put it at the top of your app.layout Div

@@ -4,7 +4,13 @@ import sys
 
 if __name__ == "__main__":
     """
-    Simple script to update the version in setup.py according to Semantic Versioning 2.0
+    Simple script to update the version in setup.py according to semantic versioning
+
+    ```
+    zsh release.sh minor
+    zsh release.sh major
+    zsh release.sh patch
+    ```
     """
     arg = sys.argv[1]
     if arg not in ("major", "minor", "patch"):
@@ -38,17 +44,20 @@ if __name__ == "__main__":
                 )
                 patch = str(int(patch) + 1)
             lines[i] = f'    version="{major}.{minor}.{patch}",'
-    
-    if s:=input("do you want to continue with the release to PyPi? y/n: "):
-        if s.lower()=="y":
+        if line.strip().startswith("download_url=") and line.strip().endswith(","):
+            lines[
+                i
+            ] = f'    download_url="https://github.com/russellromney/dash-security/archive/v{major}.{minor}.{patch}.tar.gz",'
+
+    if s := input("do you want to continue with the release to PyPi? y/n: "):
+        if s.lower() == "y":
             # os.remove("dist")
             # os.remove("dash-security.egg-info")
             with open("setup.py", "w") as f:
-                    for line in lines:
-                        f.writelines(line + "\n")
-            with open("/tmp/dash-security-release-version",'w') as f:
+                for line in lines:
+                    f.writelines(line + "\n")
+            with open("/tmp/dash-security-release-version", "w") as f:
                 f.truncate()
                 f.write(f"v{major}.{minor}.{patch}")
         else:
             raise Exception("Exiting release bump.")
-        

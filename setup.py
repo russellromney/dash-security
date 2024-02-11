@@ -3,14 +3,13 @@ from setuptools import setup, find_packages
 
 setup(
     name="dash-security",
-    version="0.0.6",
+    version="0.1.0",
     description="Building blocks for secure Dash development with Dash Pages",
     long_description="Securely develop Dash apps for cases with multiple clients and which require loading dynamic content per user/client - with Dash Pages support",
     keywords="dash security callbacks plotly access authorization authentication flask python flask-login python3 clients orgs emails",
     url="https://github.com/russellromney/dash-security",
-    download_url="https://github.com/russellromney/dash-security/archive/v0.0.1.tar.gz",
+    download_url="https://github.com/russellromney/dash-security/archive/v0.1.0.tar.gz",
     author="Russell Romney",
-    author_email="russellromney@gmail.com",
     license="MIT",
     packages=find_packages(exclude=("examples",)),
     install_requires=[
@@ -22,7 +21,7 @@ setup(
         "SQLAlchemy>=2.0.25",
         "urllib3>=2.1.0",
     ],
-    python_requires=">=3.9",
+    python_requires=">=3.10",
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Intended Audience :: Developers",
@@ -37,4 +36,3 @@ setup(
     include_package_data=False,
     zip_safe=False,
 )
-
