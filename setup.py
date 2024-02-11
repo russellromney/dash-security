@@ -3,12 +3,12 @@ from setuptools import setup, find_packages
 
 setup(
     name="dash-security",
-    version="0.1.0",
+    version="0.1.1",
     description="Building blocks for secure Dash development with Dash Pages",
     long_description="Securely develop Dash apps for cases with multiple clients and which require loading dynamic content per user/client - with Dash Pages support",
     keywords="dash security callbacks plotly access authorization authentication flask python flask-login python3 clients orgs emails",
     url="https://github.com/russellromney/dash-security",
-    download_url="https://github.com/russellromney/dash-security/archive/v0.1.0.tar.gz",
+    download_url="https://github.com/russellromney/dash-security/archive/v0.1.1.tar.gz",
     author="Russell Romney",
     license="MIT",
     packages=find_packages(exclude=("examples",)),
@@ -36,3 +36,4 @@ setup(
     include_package_data=False,
     zip_safe=False,
 )
+
