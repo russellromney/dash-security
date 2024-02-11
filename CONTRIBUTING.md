@@ -33,7 +33,9 @@ black .
 
 Create and tag new releases (only the project owner can upload to PyPi):
 ```shell
-zsh release.sh patch
-zsh release.sh minor
-zsh release.sh major
+# only on main branch
+git add .
+git commit -m 'release'
+
+zsh release.sh patch|minor|major
 ```
