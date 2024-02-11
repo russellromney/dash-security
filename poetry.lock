@@ -951,17 +951,6 @@ files = [
 typing-extensions = ">=4.6.0,<4.7.0 || >4.7.0"
 
 [[package]]
-name = "pypandoc"
-version = "1.12"
-description = "Thin wrapper for pandoc."
-optional = false
-python-versions = ">=3.6"
-files = [
-    {file = "pypandoc-1.12-py3-none-any.whl", hash = "sha256:efb4f7d68ead8bec32e22b62f02d5608a1700978b51bfc4af286fd6acfe9d218"},
-    {file = "pypandoc-1.12.tar.gz", hash = "sha256:8f44740a9f074e121d81b489f073160421611d4ead62d1b306aeb11aab3c32df"},
-]
-
-[[package]]
 name = "python-dotenv"
 version = "1.0.1"
 description = "Read key-value pairs from a .env file and set them as environment variables"
@@ -1212,4 +1201,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "dc72d72705b2c361efd5a181047686f56eff7099e3f53c6418d4bf1ee9a29f8e"
+content-hash = "b8cd199d7a1e5cb70f988c49a8c839bafca23a1a8b572b350bd0d215be3bcc8d"

@@ -8,6 +8,7 @@ if [ $? -ne 0 ]; then
 else 
     # The command was successful, print a success message 
     echo "Release bump succeeded with exit status $?" 
+    poetry version $(cat /tmp/dash-security-release-version)
     python setup.py sdist
     twine upload dist/dash-security-$(cat /tmp/dash-security-release-version).tar.gz
     gh release create v$(cat /tmp/dash-security-release-version)
