@@ -1,16 +1,16 @@
 # dash-security
 
+Dash Security provides building blocks for developing secure, modern Dash apps with Dash Pages. 
+
 ```shell
 pip3 install dash-security
 ```
 
-Dash Security allows you to build secure Dash apps by default. 
-
 In addition, it allows you to granularly control access to different layouts for users and orgs, and dynamically serve different content to different users with the same layouts and assets.
 
-(future: arbitrary permission levels)
+(future: arbitrary permission levels and groups)
 
-Dash Security emulates Dash itself: it securely registers layouts and assets into something similar to `dash.page_registry`. 
+Dash Security emulates Dash Pages: it securely registers layouts and assets to `dash.page_registry`.
 
 # dash-security example: `examples/basic`
 
