@@ -237,3 +237,13 @@ if __name__ == "__main__":
     app.run_server(debug=True, port=8050)
 
 ```
+
+
+# Contributing to dash-security
+
+Contributions to Dash Security are welcome! Steps to contribute: 
+* clone the repo (or fork the repo and clone your fork)
+* create a feature branch with a helpful name like `contrib/add-somefeature`
+* commit change to your local branch
+* push those commits to your branch (or to your fork branch)
+* open a Pull Request on this repo with your changes
