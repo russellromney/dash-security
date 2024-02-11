@@ -9,6 +9,6 @@ else
     # The command was successful, print a success message 
     echo "Release bump succeeded with exit status $?" 
     python setup.py sdist
-    twine upload dist/*
-    gh release create $(cat /tmp/dash-security-release-version)
+    twine upload dist/dash-security-$(cat /tmp/dash-security-release-version).tar.gz
+    gh release create v$(cat /tmp/dash-security-release-version)
 fi 

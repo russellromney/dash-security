@@ -58,6 +58,6 @@ if __name__ == "__main__":
                     f.writelines(line + "\n")
             with open("/tmp/dash-security-release-version", "w") as f:
                 f.truncate()
-                f.write(f"v{major}.{minor}.{patch}")
+                f.write(f"{major}.{minor}.{patch}")
         else:
             raise Exception("Exiting release bump.")
