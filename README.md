@@ -12,7 +12,9 @@ In addition, it allows you to granularly control access to different layouts for
 
 Dash Security emulates Dash Pages: it securely registers layouts and assets to `dash.page_registry`.
 
-# dash-security example: `examples/basic`
+# dash-security example
+
+Located in: `examples/basic`
 
 `dash-security` allows you to granularly control access to different layouts for users and orgs, and dynamically serve different content to different users with the same layouts and assets.
 
