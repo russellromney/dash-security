@@ -1,12 +1,12 @@
 [project]
 name = "dash-security"
-version = "0.1.14"
+version = "0.1.15"
 description = "Building blocks for secure Dash development with Dash Pages"
 readme = "README.md"
 
 [tool.poetry]
 name = "dash-security"
-version = "0.1.14"
+version = "0.1.15"
 license = "MIT"
 authors = ["Russell Romney"]
 keywords = ["dash", "security", "callbacks", "plotly", "access", "authorization", "authentication", "flask", "python", "flask-login", "python3", "clients", "orgs", "emails"]
@@ -26,6 +26,7 @@ flask-compress = "^1.14"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
 
 
 
