@@ -113,6 +113,7 @@ from dash import register_page, html
 from security import register_layout
 
 register_page(__name__,"/page")
+
 @register_layout(__name__, emails="me@this.com")
 def layout():
     return html.Div(...)
@@ -144,7 +145,8 @@ Any callback you want to be accessible to non-logged-in users must be explicitly
 
 ```python
 from security import unprotected
-@callback(...)
+
+@callback(Output(...),Input(...))
 @unprotected
 def login_callback(...):
     ...
@@ -198,8 +200,8 @@ Sometimes you want to redirect a user away from a page if they're already logged
 from security import unprotected, register_layout
 
 register_page(__name__, "/login")
-
 HOME_PATH = "/"
+
 @register_layout(__name__, open=True)
 def layout():
     if current_user.is_authenticated:
